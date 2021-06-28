@@ -71,7 +71,7 @@ function preload() {
     this.load.image('soundBtn', './assets/volume-up (3).png');
     
     //---star at the end---
-    this.load.image('star', './assets/yellow-star.png');
+    this.load.image('star', './assets/y-badge.png');
     
     //---background pattern---
     this.load.image('gameBg', './assets/feuilledroite-01-01.png');
