@@ -49,14 +49,15 @@ function init() {
 
 function preload() {
     //---personnage en transparence---
-    this.load.image('background', './assets/moine-01.png');
+    this.load.image('background', './assets/bucheron-01.png');
     
     //----membres----
-    this.load.image('head', './assets/moiHead-01.png');
-    this.load.image('body', './assets/moiBody-01.png');
-    this.load.image('hips', './assets/moiLegs2-01.png');
-    this.load.image('legL', './assets/moiFootL-01.png');
-    this.load.image('legR', './assets/moiFootR-01.png');
+    this.load.image('head', './assets/bucHead-01.png');
+    this.load.image('body', './assets/bucBody-01.png');
+    this.load.image('legL', './assets/bucLegL-01.png');
+    this.load.image('legR', './assets/bucLegR-01.png');
+    this.load.image('armL', './assets/bucArmL-01.png');
+    this.load.image('armR', './assets/bucArmR-01.png');
     
      //---arrow next---
     this.load.image('nextArrow', './assets/yellow-arrow.png');
@@ -127,55 +128,65 @@ function create() {
     body.setName('body');
 //    body.setScale(0.45);
     
-    var hips = this.add.image(70, 550, 'hips', Phaser.Math.RND.pick(frames)).setInteractive();
-    this.input.setDraggable(hips);
-    hips.setName('hips');
+    var armL = this.add.image(70, 550, 'armL', Phaser.Math.RND.pick(frames)).setInteractive();
+    this.input.setDraggable(armL);
+    armL.setName('armL');
 //    hips.setScale(0.45);
     
-    var legL = this.add.image(50, 212, 'legL', Phaser.Math.RND.pick(frames)).setInteractive();
-    this.input.setDraggable(legL);
-    legL.setName('legL');
-//    legL.setScale(0.45);
+    var armR = this.add.image(200, 550, 'armR', Phaser.Math.RND.pick(frames)).setInteractive();
+    this.input.setDraggable(armR);
+    armR.setName('armR');
     
-    var legR = this.add.image(50, 280, 'legR', Phaser.Math.RND.pick(frames)).setInteractive();
+    var legR = this.add.image(50, 400, 'legR', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(legR);
     legR.setName('legR');
+//    legL.setScale(0.45);
+    
+    var legL = this.add.image(50, 250, 'legL', Phaser.Math.RND.pick(frames)).setInteractive();
+    this.input.setDraggable(legL);
+    legL.setName('legL');
 //    legR.setScale(0.45);
     
     //-----les drop zones----
     // margin left, margin top, width, heigth 
     //  A drop zone
-    var zone = this.add.zone(187, 158, 100, 90).setRectangleDropZone(100, 90);
+    var zone = this.add.zone(201, 125, 100, 80).setRectangleDropZone(100, 80);
     zone.setName('head');
     
     //  A drop zone
-    var zone2 = this.add.zone(200, 220, 240, 70).setRectangleDropZone(240, 70);
+    var zone2 = this.add.zone(195, 237, 100, 140).setRectangleDropZone(100, 140);
     zone2.setName('body');
     
     //  A drop zone
-    var zone3 = this.add.zone(195, 340, 180, 85).setRectangleDropZone(180, 85);
-    zone3.setName('hips');
+    var zone3 = this.add.zone(125, 245, 50, 140).setRectangleDropZone(50, 140);
+    zone3.setName('armL');
     
     
     //  A drop zone
-    var zone4 = this.add.zone(232, 395, 70, 30).setRectangleDropZone(70, 30);
+    var zone4 = this.add.zone(243, 370, 60, 120).setRectangleDropZone(60, 120);
     zone4.setName('legR');
     
     //  A drop zone
-    var zone5 = this.add.zone(127, 396, 60, 25).setRectangleDropZone(60, 25);
+    var zone5 = this.add.zone(169, 370, 60, 120).setRectangleDropZone(60, 120);
     zone5.setName('legL');
     
-//      var graphics = this.add.graphics();
-//    graphics.lineStyle(2, 0xffff00);
-//    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
+    //  A drop zone
+    var zone6 = this.add.zone(280, 250, 60, 140).setRectangleDropZone(60, 140);
+    zone6.setName('armR');
+    
+      var graphics = this.add.graphics();
+    graphics.lineStyle(2, 0xffff00);
+    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+    
+    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
+    
+    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
+    
+    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
+    
+    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
+    
+    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
     
  
     
@@ -237,7 +248,7 @@ else{
             
         }
         
-        if(successfulDropoff === 5){
+        if(successfulDropoff === 6){
             console.log("well done!!!!");
             nextArrow.setVisible(true);
             nextArrow.setInteractive();
