@@ -60,7 +60,7 @@ function preload() {
     this.load.image('armR', './assets/bucArmR-01.png');
     
      //---arrow next---
-    this.load.image('nextArrow', './assets/yellow-arrow.png');
+    this.load.image('nextArrow', './assets/y-refresh.png');
     
     //---audio files---
     this.load.audio('hold', './assets/hold.wav');
@@ -113,7 +113,7 @@ function create() {
     
     //---next arrow----
     nextArrow = this.add.image(300, 550, 'nextArrow');
-    nextArrow.setScale(0.7);
+    nextArrow.setScale(0.15);
     nextArrow.setVisible(false);
     
     //----les membres-----
@@ -174,19 +174,19 @@ function create() {
     var zone6 = this.add.zone(280, 250, 60, 140).setRectangleDropZone(60, 140);
     zone6.setName('armR');
     
-      var graphics = this.add.graphics();
-    graphics.lineStyle(2, 0xffff00);
-    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
-    
-    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
-    
-    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
-    
-    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
-    
-    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
-    
-    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
+//      var graphics = this.add.graphics();
+//    graphics.lineStyle(2, 0xffff00);
+//    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
     
  
     
@@ -266,11 +266,11 @@ else{
 
 
 function update() {
-    if(successfulDropoff === 5){
+    if(successfulDropoff === 6){
          starScale += 0.001;
         star.setScale(starScale);
-        if (starScale > 0.2){
-            starScale = 0.2;
+        if (starScale > 0.3){
+            starScale = 0.3;
         } }
     
     if (hasBeenClicked === true){
@@ -281,7 +281,7 @@ function update() {
 
 function onClick(){
 //    window.open("https://www.google.com", "_blank");
-    window.location.replace("http://www.w3schools.com");
+    window.location.replace("https://games.caramel.be/robin-hood/index.html");
 
 }
 
