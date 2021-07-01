@@ -33,9 +33,6 @@ var wrongSound;
 var correctSound;
 var finishSound;
 
-var soundButton;
-var hasBeenClicked;
-
 //var du background
 var gameBg;
 
@@ -68,9 +65,6 @@ function preload() {
     this.load.audio('correct', './assets/correct.wav');
     this.load.audio('finish', './assets/congratulations.wav');
     
-    //---sound button----
-    this.load.image('soundBtn', './assets/volume-up (3).png');
-    
     //---star at the end---
     this.load.image('star', './assets/y-badge.png');
     
@@ -99,13 +93,6 @@ function create() {
     wrongSound = this.sound.add('wrong');
     correctSound = this.sound.add('correct');
     finishSound = this.sound.add('finish');
-    
-    //----audio  btn----
-    soundButton = this.add.image(50,50, 'soundBtn');
-    soundButton.setScale(0.1);
-    soundButton.setInteractive();
-    soundButton.alpha = 0.5;
-    soundButton.on('pointerdown', enableMusic);
     
     //drop off counter
     successfulDropoff = 0;
@@ -245,10 +232,6 @@ function update() {
         if (starScale > 0.3){
             starScale = 0.3;
         } }
-    
-    if (hasBeenClicked === true){
-        soundButton.alpha = 1;
-        }
 
 }
 
@@ -257,6 +240,3 @@ function onClick(){
 
 }
 
-function enableMusic(){
-    hasBeenClicked = true;
-}
