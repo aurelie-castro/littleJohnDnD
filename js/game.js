@@ -13,7 +13,7 @@ let config = {
     },
     backgroundColor: '#f7e07f',
     audio: {
-        disableWebAudio: true
+        disableWebAudio: false
     },
     autoCenter: true
 };
@@ -86,7 +86,6 @@ function create() {
     
     var image = this.add.image(200, 250, 'background');
     image.alpha = 0.3;
-//    image.setScale(0.45);
     
     //---star---
     starScale = 0.1;
@@ -119,19 +118,15 @@ function create() {
     //----les membres-----
     var head = this.add.image(310, 70, 'head', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(head);
-//    head.setScale(2);
     head.setName('head');
-//    head.setScale(0.45);
     
     var body = this.add.image(300, 512, 'body', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(body);
     body.setName('body');
-//    body.setScale(0.45);
     
     var armL = this.add.image(70, 550, 'armL', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(armL);
     armL.setName('armL');
-//    hips.setScale(0.45);
     
     var armR = this.add.image(200, 550, 'armR', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(armR);
@@ -140,12 +135,10 @@ function create() {
     var legR = this.add.image(50, 400, 'legR', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(legR);
     legR.setName('legR');
-//    legL.setScale(0.45);
     
     var legL = this.add.image(50, 250, 'legL', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(legL);
     legL.setName('legL');
-//    legR.setScale(0.45);
     
     //-----les drop zones----
     // margin left, margin top, width, heigth 
@@ -173,22 +166,6 @@ function create() {
     //  A drop zone
     var zone6 = this.add.zone(280, 250, 60, 140).setRectangleDropZone(60, 140);
     zone6.setName('armR');
-    
-//      var graphics = this.add.graphics();
-//    graphics.lineStyle(2, 0xffff00);
-//    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
-//    
-//    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
-    
- 
     
  
     //---drag and drop mechanics---
@@ -221,17 +198,14 @@ function create() {
             gameObject.y = dropZone.y;
 
             gameObject.input.enabled = false;
-            console.log(dropZone.name == gameObject.name);
-            console.log('successful dropoff of ' + gameObject.name + ' in ' + dropZone.name);
             
             successfulDropoff++;
-            console.log(successfulDropoff);
+
             correctSound.play();
         }
 else{
             gameObject.x = gameObject.input.dragStartX;
             gameObject.y = gameObject.input.dragStartY;
-            console.log('failed dropoff of ' + gameObject.name + ' in ' + dropZone.name);
     
             wrongSound.play();
         }
@@ -249,7 +223,6 @@ else{
         }
         
         if(successfulDropoff === 6){
-            console.log("well done!!!!");
             nextArrow.setVisible(true);
             nextArrow.setInteractive();
             finishSound.play();
@@ -280,7 +253,6 @@ function update() {
 }
 
 function onClick(){
-//    window.open("https://www.google.com", "_blank");
     window.location.replace("https://games.caramel.be/robin-hood/index.html");
 
 }
